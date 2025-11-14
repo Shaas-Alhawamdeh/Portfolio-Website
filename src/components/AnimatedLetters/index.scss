@@ -1,0 +1,46 @@
+.letter,
+.text-animate,
+.text-animate-hover {
+  display: inline-block;
+  will-change: transform, color, text-shadow, opacity;
+}
+
+
+.text-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: bounceIn 0.8s forwards ease-out;
+}
+
+@keyframes bounceIn {
+  0% { opacity: 0; transform: translateY(40px); }
+  60% { opacity: 1; transform: translateY(-12px); }
+  80% { transform: translateY(6px); }
+  100% { transform: translateY(0); }
+}
+
+
+@for $i from 1 through 150 {
+  .text-animate._#{$i} {
+    animation-delay: #{$i * 0.06}s;
+  }
+}
+
+
+.text-animate-hover {
+  transition: transform 0.25s ease, color 0.25s ease, text-shadow 0.25s ease;
+  cursor: default;
+
+  &:hover {
+    color: #ffd700;
+    transform: translateY(-6px);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    animation: hoverPop 0.4s ease;
+  }
+}
+
+@keyframes hoverPop {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(-6px); }
+}

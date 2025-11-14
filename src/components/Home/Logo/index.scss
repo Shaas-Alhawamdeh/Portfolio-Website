@@ -1,0 +1,38 @@
+.logo-container {
+  width: 320px;
+  height: 55px !important;
+  margin-right: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  animation:
+    slideInLogo 1s ease-out forwards,
+    levitate 2.2s ease-in-out infinite;
+  opacity: 0;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+
+@keyframes slideInLogo {
+  0% { opacity: 0; transform: translateX(120px) scale(0.95); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+
+@keyframes levitate {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+}
+
+
+.logo-container:hover {
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-40px) scale(1.05); }
+}

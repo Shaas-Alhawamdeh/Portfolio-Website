@@ -1,0 +1,199 @@
+/* === DESKTOP SIDEBAR === */
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 85px;
+  background: #151515;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 0;
+  z-index: 1000;
+  border-right: 2px solid #0d47a1;
+}
+
+/* Logo */
+.nav-bar .logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.nav-bar .logo img {
+  width: 78px;
+  height: auto;
+  margin-bottom: 8px;
+  transition: transform 0.3s ease;
+}
+
+.nav-bar .logo:hover img {
+  transform: scale(1.08);
+}
+
+/* Nav links */
+.nav-bar nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-grow: 1;
+}
+
+.nav-bar nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-size: 22px;
+  transition: color 0.25s ease, transform 0.25s ease;
+  text-decoration: none;
+}
+
+.nav-bar nav a:hover {
+  color: #ffd700;
+  transform: scale(1.12);
+}
+
+.nav-bar nav a.active {
+  color: #ffd700;
+}
+
+.nav-bar nav a span {
+  margin-top: 3px;
+  font-size: 11px;
+  color: #aaa;
+}
+
+/* Resume button (gold) */
+.nav-bar nav .resume-link {
+  background: #ffd700;
+  color: #000;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.nav-bar nav .resume-link:hover {
+  transform: scale(1.08);
+  background: #ffcc00;
+}
+
+.nav-bar nav .resume-link span {
+  color: #000;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+/* Social icons (if you use them) */
+.nav-bar .social-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.nav-bar .social-links a {
+  color: #ffffff;
+  font-size: 20px;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.nav-bar .social-links a:hover {
+  color: #8be4ff;
+  transform: scale(1.15);
+}
+
+/* Main content pushes right of sidebar on desktop */
+.container {
+  margin-left: 85px;
+}
+
+/* === HAMBURGER: HIDDEN BY DEFAULT (DESKTOP) === */
+.hamburger-icon {
+  display: none;
+}
+
+/* ===================================================== */
+/* ==================  MOBILE LAYOUT  ================== */
+/* ===================================================== */
+
+@media (max-width: 768px) {
+  /* Top bar instead of vertical sidebar */
+  .nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    background: #151515;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 16px;
+    border-right: none;
+    border-bottom: 2px solid #0d47a1;
+    z-index: 1000;
+  }
+
+  .nav-bar .logo {
+    margin-top: 0;
+  }
+
+  .nav-bar .logo img {
+    width: 52px;
+  }
+
+  /* Hide full nav by default on mobile */
+  .nav-bar nav {
+    display: none;
+  }
+
+  /* When showNav=true, .open is added on <div className="nav-bar"> */
+  .nav-bar.open nav {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 20px 0 30px;
+    background: rgba(0, 0, 0, 0.96);
+    z-index: 999;
+  }
+
+  .nav-bar.open nav a span {
+    display: block;
+  }
+
+  .nav-bar .social-links {
+    display: none;
+  }
+
+  /* MOBILE HAMBURGER BUTTON */
+  .hamburger-icon {
+    display: block !important;
+    position: fixed;
+    right: 18px;
+    top: 14px;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+  /* Content should not hide under the fixed top bar */
+  .container {
+    margin-left: 0;
+    padding-top: 80px;
+  }
+}
